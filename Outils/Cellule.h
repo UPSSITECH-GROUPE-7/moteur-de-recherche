@@ -1,6 +1,9 @@
-#ifndef file_generique_Cellule_h
-#define file_generique_Cellule_h
+#ifndef __Outils__cellule__
+#define __Outils__cellule__
 
+/*
+ Structure qui représente une cellule générique.
+ */
 typedef struct Cellule
 {
     void* info;
