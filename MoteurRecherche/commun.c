@@ -39,10 +39,15 @@ int nom_fichier_par_identifiant_descripteur(int identifiant, const char* liste_b
     /*
      Ensuite on va récuper la valeur du nom en ouvrant le fichier et lisant une chaine de caractère.
      */
-    FILE * f;
-    f=fopen(FICHIER_TEMPORAIRE, "r");
-    fscanf(f, "%s", nom_fichier);
-    fclose(f);
+    FILE * file;
+    file=fopen(FICHIER_TEMPORAIRE, "r");
+    if(file == NULL)
+   	{
+   		perror("fopen on FICHIER_TEMPORAIRE");
+   		return EXIT_FAILURE;
+   	}
+    fscanf(file, "%s", nom_fichier);
+    fclose(file);
     
     /*
      Création de la commande permettant de supprimer le fichier temporaire.
