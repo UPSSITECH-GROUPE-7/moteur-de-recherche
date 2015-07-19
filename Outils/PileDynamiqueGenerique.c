@@ -33,6 +33,9 @@ void empiler(Pile* p, void* e){
     Cellule *tmp;
     
     tmp = (Cellule*)malloc(sizeof(struct Cellule));
+    if(tmp == NULL)
+        perror("An error has occured. Please Insult your provider"
+        "for not testing malloc!");
     memcpy(&(tmp->info), e, p->type);
     tmp->suiv = p->tete;
     p->tete = tmp;
